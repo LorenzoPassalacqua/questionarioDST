@@ -19,7 +19,26 @@ paths:
         '200':
           description: utente registrato
 
-
+  /eliminaUtente{id}:
+    delete:
+      description: Delete user
+      operationId: deleteUser
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: integer per eliminare utente
+      responses:
+        '200':
+          description: Deleted.
+        '400':
+          description: The specificied user ID is invalid.
+        '404':
+          description: A user with the specified ID was not found.
+        default:
+          description: Unexpected error.
 components:
   schemas:
     UserDTO:
